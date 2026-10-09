@@ -1,6 +1,6 @@
 # Teste Técnico QA — Verzel Store
 
-Projeto desenvolvido como parte de um teste técnico de QA Júnior na Verzel Store.
+Projeto desenvolvido como parte de um teste técnico de QA Júnior na Verzel.
 
 ---
 
