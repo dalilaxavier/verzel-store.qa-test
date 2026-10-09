@@ -1,0 +1,816 @@
+{
+  "info": {
+    "_postman_id": "ffd94d5a-0887-4fec-9782-546c83ae4f1e",
+    "name": "verzel-teste",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "53644236",
+    "_collection_link": "https://go.postman.co/collection/53644236-ffd94d5a-0887-4fec-9782-546c83ae4f1e?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "API-01-Listar todos os produtos",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}//api/produtos",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "",
+            "api",
+            "produtos"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "API-02-Consultar produto existente pelo ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/produtos/P001",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "produtos",
+            "P001"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "API-03-Consultar produto inexistente",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/api/produtos/p009",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "produtos",
+            "p009"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "API-04-CA01-Cálculo do carrinho com cupom válido",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"itens\": [\r\n    { \"produtoId\": \"P002\", \"quantidade\": 1 },\r\n    { \"produtoId\": \"P004\", \"quantidade\": 2 }\r\n  ],\r\n  \"cupom\": \"BEMVINDO10\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}api/carrinho/calcular",
+          "host": [
+            "{{baseUrl}}api"
+          ],
+          "path": [
+            "carrinho",
+            "calcular"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "API-05-CA02-Cupom com letra minúscula",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"itens\": [\r\n    { \"produtoId\": \"P002\", \"quantidade\": 1 },\r\n    { \"produtoId\": \"P004\", \"quantidade\": 2 }\r\n  ],\r\n  \"cupom\": \"bemvindo10\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}api/carrinho/calcular",
+          "host": [
+            "{{baseUrl}}api"
+          ],
+          "path": [
+            "carrinho",
+            "calcular"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "API-06-CA02-Cupom com letra minúscula e maiúscula",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"itens\": [\r\n    { \"produtoId\": \"P002\", \"quantidade\": 1 },\r\n    { \"produtoId\": \"P004\", \"quantidade\": 2 }\r\n  ],\r\n  \"cupom\": \"BemVindo10\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}api/carrinho/calcular",
+          "host": [
+            "{{baseUrl}}api"
+          ],
+          "path": [
+            "carrinho",
+            "calcular"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "API-07-CA02-Cupom com espaço no ínicio",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"itens\": [\r\n    { \"produtoId\": \"P002\", \"quantidade\": 1 },\r\n    { \"produtoId\": \"P004\", \"quantidade\": 2 }\r\n  ],\r\n  \"cupom\": \" bemvindo10\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}api/carrinho/calcular",
+          "host": [
+            "{{baseUrl}}api"
+          ],
+          "path": [
+            "carrinho",
+            "calcular"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "API-08-CA02-Cupom com espaço no final",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"itens\": [\r\n    { \"produtoId\": \"P002\", \"quantidade\": 1 },\r\n    { \"produtoId\": \"P004\", \"quantidade\": 2 }\r\n  ],\r\n  \"cupom\": \"bemvindo10 \"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}api/carrinho/calcular",
+          "host": [
+            "{{baseUrl}}api"
+          ],
+          "path": [
+            "carrinho",
+            "calcular"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "API-09-CA02-Cupom com espaço no inicio e final",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"itens\": [\r\n    { \"produtoId\": \"P002\", \"quantidade\": 1 },\r\n    { \"produtoId\": \"P004\", \"quantidade\": 2 }\r\n  ],\r\n  \"cupom\": \" bemvindo10 \"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}api/carrinho/calcular",
+          "host": [
+            "{{baseUrl}}api"
+          ],
+          "path": [
+            "carrinho",
+            "calcular"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "API-10-CA03-Cálculo do carrinho com cupom inexistente",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"itens\": [\r\n    { \"produtoId\": \"P002\", \"quantidade\": 1 },\r\n    { \"produtoId\": \"P004\", \"quantidade\": 2 }\r\n  ],\r\n  \"cupom\": \"CUPOMINVALIDO\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}api/carrinho/calcular",
+          "host": [
+            "{{baseUrl}}api"
+          ],
+          "path": [
+            "carrinho",
+            "calcular"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "API-11-CA04-Cálculo do carrinho com cupom expirado",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"itens\": [\r\n    { \"produtoId\": \"P002\", \"quantidade\": 1 },\r\n    { \"produtoId\": \"P004\", \"quantidade\": 2 }\r\n  ],\r\n  \"cupom\": \"VERAO2026\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}api/carrinho/calcular",
+          "host": [
+            "{{baseUrl}}api"
+          ],
+          "path": [
+            "carrinho",
+            "calcular"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "API-12-Cálculo do carrinho com cupom vazio",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"itens\": [\r\n    { \"produtoId\": \"P002\", \"quantidade\": 1 },\r\n    { \"produtoId\": \"P004\", \"quantidade\": 2 }\r\n  ]\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}api/carrinho/calcular",
+          "host": [
+            "{{baseUrl}}api"
+          ],
+          "path": [
+            "carrinho",
+            "calcular"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "API-13-CA06-Frete grátis para subtotal igual a R$ 200,00",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"itens\": [\r\n    { \"produtoId\": \"P005\", \"quantidade\": 2 }a\r\n  ]\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}api/carrinho/calcular",
+          "host": [
+            "{{baseUrl}}api"
+          ],
+          "path": [
+            "carrinho",
+            "calcular"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "API-14-CA06-Frete grátis para subtotal maior que R$ 200,00",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"itens\": [\r\n    { \"produtoId\": \"P001\", \"quantidade\": 1 },\r\n    { \"produtoId\": \"P006\", \"quantidade\": 5 }\r\n  ]\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}api/carrinho/calcular",
+          "host": [
+            "{{baseUrl}}api"
+          ],
+          "path": [
+            "carrinho",
+            "calcular"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "API-15-CA07-Frete fixo para subtotal menor que R$ 200,00",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"itens\": [\r\n    { \"produtoId\": \"P004\", \"quantidade\": 1 },\r\n    { \"produtoId\": \"P005\", \"quantidade\": 1 },\r\n    { \"produtoId\": \"P008\", \"quantidade\": 1 }\r\n  ]\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}api/carrinho/calcular",
+          "host": [
+            "{{baseUrl}}api"
+          ],
+          "path": [
+            "carrinho",
+            "calcular"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "API-16-CA08-Frete calculado antes do desconto",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"itens\": [\r\n    { \"produtoId\": \"P001\", \"quantidade\": 1 },\r\n    { \"produtoId\": \"P006\", \"quantidade\": 5 }\r\n  ],\r\n  \"cupom\": \"BEMVINDO10\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}api/carrinho/calcular",
+          "host": [
+            "{{baseUrl}}api"
+          ],
+          "path": [
+            "carrinho",
+            "calcular"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "API-17-CA09-Desconto não incide sobre o frete",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"itens\": [\r\n    { \"produtoId\": \"P002\", \"quantidade\": 1 }\r\n  ],\r\n  \"cupom\": \"BEMVINDO10\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}api/carrinho/calcular",
+          "host": [
+            "{{baseUrl}}api"
+          ],
+          "path": [
+            "carrinho",
+            "calcular"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "API-18-CA10-Permitir exatamente 5 unidades do mesmo produto",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"itens\": [\r\n    { \"produtoId\": \"P005\", \"quantidade\": 5 }\r\n  ]\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}api/carrinho/calcular",
+          "host": [
+            "{{baseUrl}}api"
+          ],
+          "path": [
+            "carrinho",
+            "calcular"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "API-19-CA10-Limitar mais de 5 produtos",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"itens\": [\r\n    { \"produtoId\": \"P005\", \"quantidade\": 6 }\r\n  ]\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}api/carrinho/calcular",
+          "host": [
+            "{{baseUrl}}api"
+          ],
+          "path": [
+            "carrinho",
+            "calcular"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "API-20-Validar pedido com dados válidos",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"cliente\": {\r\n    \"nome\": \"Maria Silva\",\r\n    \"email\": \"maria@exemplo.com\",\r\n    \"cep\": \"01310-100\"\r\n  },\r\n  \"itens\": [\r\n    { \"produtoId\": \"P005\", \"quantidade\": 1 }\r\n  ],\r\n  \"cupom\": \"BEMVINDO10\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}api/pedidos",
+          "host": [
+            "{{baseUrl}}api"
+          ],
+          "path": [
+            "pedidos"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "API-21-Pedido com cupom inválido",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"cliente\": {\r\n    \"nome\": \"Maria Silva\",\r\n    \"email\": \"maria@exemplo.com\",\r\n    \"cep\": \"01310-100\"\r\n  },\r\n  \"itens\": [\r\n    { \"produtoId\": \"P005\", \"quantidade\": 1 }\r\n  ],\r\n  \"cupom\": \"CUPOMINVALIDO\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}api/pedidos",
+          "host": [
+            "{{baseUrl}}api"
+          ],
+          "path": [
+            "pedidos"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "API-22-Pedido com cupom expirado",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"cliente\": {\r\n    \"nome\": \"Maria Silva\",\r\n    \"email\": \"maria@exemplo.com\",\r\n    \"cep\": \"01310-100\"\r\n  },\r\n  \"itens\": [\r\n    { \"produtoId\": \"P005\", \"quantidade\": 1 }\r\n  ],\r\n  \"cupom\": \"VERAO2026\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}api/pedidos",
+          "host": [
+            "{{baseUrl}}api"
+          ],
+          "path": [
+            "pedidos"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "API-23-Pedido com nome incompleto",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"cliente\": {\r\n    \"nome\": \"Maria\",\r\n    \"email\": \"maria@exemplo.com\",\r\n    \"cep\": \"01310-100\"\r\n  },\r\n  \"itens\": [\r\n    { \"produtoId\": \"P005\", \"quantidade\": 1 }\r\n  ],\r\n  \"cupom\": \"BEMVINDO10\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}api/pedidos",
+          "host": [
+            "{{baseUrl}}api"
+          ],
+          "path": [
+            "pedidos"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "API-24-Pedido com e-mail inválido",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"cliente\": {\r\n    \"nome\": \"Maria Silva\",\r\n    \"email\": \"maria@.com\",\r\n    \"cep\": \"01310-100\"\r\n  },\r\n  \"itens\": [\r\n    { \"produtoId\": \"P005\", \"quantidade\": 1 }\r\n  ],\r\n  \"cupom\": \"BEMVINDO10\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}api/pedidos",
+          "host": [
+            "{{baseUrl}}api"
+          ],
+          "path": [
+            "pedidos"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "API-25-Pedido com CEP menor de 8 dígitos",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"cliente\": {\r\n    \"nome\": \"Maria Silva\",\r\n    \"email\": \"maria@exemplo.com\",\r\n    \"cep\": \"01310-10\"\r\n  },\r\n  \"itens\": [\r\n    { \"produtoId\": \"P005\", \"quantidade\": 1 }\r\n  ],\r\n  \"cupom\": \"BEMVINDO10\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}api/pedidos",
+          "host": [
+            "{{baseUrl}}api"
+          ],
+          "path": [
+            "pedidos"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "API-26-Pedido com CEP maior de 8 dígitos",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"cliente\": {\r\n    \"nome\": \"Maria Silva\",\r\n    \"email\": \"maria@exemplo.com\",\r\n    \"cep\": \"01310-1000\"\r\n  },\r\n  \"itens\": [\r\n    { \"produtoId\": \"P005\", \"quantidade\": 1 }\r\n  ],\r\n  \"cupom\": \"BEMVINDO10\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}api/pedidos",
+          "host": [
+            "{{baseUrl}}api"
+          ],
+          "path": [
+            "pedidos"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
