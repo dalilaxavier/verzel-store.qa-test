@@ -71,7 +71,7 @@ teste-tecnico-verzel/
 │
 ├── teste-api/
 │   ├── collection/
-│   │   ├── verzel-store.postman_collection.json
+│   │   ├── verzel-teste.postman_collection.json
 │   │   └── verzel-teste.postman_environment.json
 │   │
 │   ├── evidencias-bug/
