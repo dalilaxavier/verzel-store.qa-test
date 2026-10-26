@@ -89,5 +89,5 @@ test('Conceder frete grátis para subtotal acima de R$ 200,00', async ({ page })
     await expect(page.locator('[data-valor="frete"]')).toHaveText("Grátis");
 
     // Valida o valor do total
-    await await expect(page.locator('[data-valor="total"]')).toHaveText('R$ 209,40');
+    await expect(page.locator('[data-valor="total"]')).toHaveText('R$ 209,40');
 });
